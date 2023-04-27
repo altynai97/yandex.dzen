@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Dashboard</h1>
+
+<p><a href="{% url 'video_upload' %}">Upload Video</a></p>
+
+{% if videos %}
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Created</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for video in videos %}
+        <tr>
+          <td>{{ video.title }}</td>
+          <td>{{ video.description }}</td>
+          <td>{{ video.created }}</td>
+          <td>
+            <a href="{% url 'video_detail' pk=video.pk %}">View</a>
+            <a href="{% url 'video_update' pk=video.pk %}">Edit</a>
+            <a href="{% url 'delete_video' pk=video.pk %}">Delete</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+  <p>No videos found.</p>
+{% endif %}
+{% endblock %}

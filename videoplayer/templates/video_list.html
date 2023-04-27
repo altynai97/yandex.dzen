@@ -1,0 +1,10 @@
+{% for video in videos %}
+<div class="video">
+<a href="{% url 'video_detail' video.pk %}">
+<h2>{{ video.title }}</h2>
+</a>
+</div>
+{% empty %}
+<p>No videos found.</p>
+{% endfor %}
+<a href="{% url 'video_upload' %}">Upload a video</a>

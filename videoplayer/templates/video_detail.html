@@ -1,0 +1,9 @@
+<h2>{{ video.title }}</h2>
+<p>{{ video.description }}</p>
+<video width="400" controls>
+  <source src="{{ video.video_file.url }}" type="video/mp4">
+  Your browser does not support HTML video.
+</video>
+<a href="{% url 'video_list' %}">Back to videos</a>
+
+
