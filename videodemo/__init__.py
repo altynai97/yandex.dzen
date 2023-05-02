@@ -1,2 +1,0 @@
-def videoplayer():
-    return None
